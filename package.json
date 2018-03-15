@@ -1,5 +1,5 @@
 {
-  "name": "bcoin-node",
+  "name": "bcoin-ipc-node",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
