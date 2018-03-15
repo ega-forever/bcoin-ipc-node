@@ -1,0 +1,1 @@
+# bcoin-ipc-node
