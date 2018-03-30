@@ -20,7 +20,7 @@ module.exports = {
   ipc: {
     ipcName: process.env.IPC_NAME || 'bitcoin',
     ipcPath: process.env.IPC_PATH || '/tmp/',
-    appSpace: process.env.APP_SPACE || ''
+    appSpace: process.env.APP_SPACE || 'app.'
   }
 
 };
