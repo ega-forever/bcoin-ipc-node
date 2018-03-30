@@ -11,11 +11,11 @@ class IPC {
     Object.assign(ipc.config, {
       id: config.ipcName,
       socketRoot: config.ipcPath,
+      appspace: config.appSpace,
       retry: 1500,
       maxConnections: 100,
-      sync: false,
-      silent: true,
-      unlink: false
+      sync: true,
+      silent: false
     });
     this.init();
   }
@@ -45,7 +45,6 @@ class IPC {
 
             ipc.server.emit(socket, 'message', {result: json, id: data.id});
           } catch (e) {
-            console.log(e)
             ipc.server.emit(socket, 'message', {
                 result: null,
                 error: {
@@ -69,7 +68,6 @@ class IPC {
   }
 
 }
-;
 
 module.exports = class IPCInitter {
 
