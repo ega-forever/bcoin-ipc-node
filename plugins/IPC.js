@@ -39,13 +39,13 @@ class IPC {
 
     ipc.serve(() => {
         ipc.server.on('message', async (data, socket) => {
+          data = JSON.parse(data);
           try {
-            data = JSON.parse(data);
             const json = await this.node.rpc.execute(data);
-
             ipc.server.emit(socket, 'message', {result: json, id: data.id});
           } catch (e) {
             ipc.server.emit(socket, 'message', {
+                id: data.id,
                 result: null,
                 error: {
                   message: 'Invalid request.',
