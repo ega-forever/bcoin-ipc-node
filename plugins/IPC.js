@@ -1,6 +1,7 @@
 const ipc = require('node-ipc'),
   path = require('path'),
   fs = require('fs'),
+  _ = require('lodash'),
   RPCBase = require('bcoin/lib/http/rpcbase');
 
 class IPC {
@@ -30,8 +31,13 @@ class IPC {
 
     this.node.rpc.add('getcoinsbyaddress', async (...args) => {
       let coins = await this.node.getCoinsByAddress(...args);
-      return coins.map(coin =>
-        coin.getJSON(this.node.network.type)
+      return coins.map(coin => {
+          coin = coin.getJSON(this.node.network.type);
+          if (_.isString(coin.value))  //todo bug in lcoin
+            coin.value = coin.value * Math.pow(10, 8);
+
+          return coin;
+        }
       );
     });
 
