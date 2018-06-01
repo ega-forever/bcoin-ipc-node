@@ -9,7 +9,8 @@
     "dotenv": "^5.0.1",
     "lcoin": "^1.0.0-beta.15",
     "lodash": "^4.17.10",
-    "node-ipc": "^9.1.1"
+    "node-ipc": "^9.1.1",
+    "require-all": "^2.2.0"
   },
   "devDependencies": {},
   "scripts": {

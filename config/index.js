@@ -8,7 +8,6 @@ module.exports = {
     db: process.env.DB_DRIVER || 'memory',
     cacheSize: process.env.CACHE_SIZE ? parseInt(process.env.CACHE_SIZE) : 1024,
     coinCache: process.env.COIN_SIZE ? parseInt(process.env.COIN_SIZE) : 30000000,
-    spv: false,
     indexTX: true,
     indexAddress: true,
     logLevel: 'info',
