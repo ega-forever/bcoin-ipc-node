@@ -1,8 +1,12 @@
 const config = require('./config'),
+  customNetworkRegistrator = require('./networks'),
   bzmq = require('bzmq'),
   IPC = require('./plugins/IPC'),
   FullNode = config.blockchain === 'litecoin' ?
     require('lcoin').fullnode : require('bcoin').fullnode;
+
+console.log(customNetworkRegistrator)
+customNetworkRegistrator(config.node.network);
 
 const node = new FullNode(config.node);
 
